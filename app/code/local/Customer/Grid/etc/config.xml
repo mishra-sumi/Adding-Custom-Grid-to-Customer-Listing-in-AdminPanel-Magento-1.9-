@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+   <modules>
+      <customer_grid>
+         <version>0.1.0</version>
+      </customer_grid>
+   </modules>
+   <global>
+      <models>
+         <customer_grid>
+	    <class>Customer_Grid_Model</class>
+	 </customer_grid>
+      </models>
+   </global>
+   <adminhtml>
+       <events>
+           <core_block_abstract_prepare_layout_before>
+               <observers>
+                   <Customer_Grid_Model_Observer>
+                       <type>model</type>
+                       <class>Customer_Grid_Model_Observer</class>
+                       <method>appendCustomColumn</method>
+                   </Customer_Grid_Model_Observer>
+               </observers>
+           </core_block_abstract_prepare_layout_before>
+       </events>
+   </adminhtml>
+</config>
